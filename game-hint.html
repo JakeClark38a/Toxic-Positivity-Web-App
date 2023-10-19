@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Instruction - Game - Toxic Positivity</title>
+</head>
+
+<body>
+	<style>
+	@font-face{
+    	font-family: badFont;
+    	src: url(title-font.otf);
+    	font-weight: bold;
+    }
+    @font-face{
+    	font-family: badFont;
+    	src: url(para-font.otf);
+    	font-weight: normal;
+    }
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: badFont, Arial, Helvetica, sans-serif;
+		text-align: center;
+	}
+	body {
+		background-image: url(./static/hint-bg-min.jpg);
+		background-color: #fffaac;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	.hint {
+		display: block;
+		width: 80%;
+		margin: 100px auto;
+		color: #1e3ba3;
+	}
+	.hint p:not(.hint #head) {
+		margin: 25px 0;
+		font-weight: 600;
+	}
+	.hint #head {
+		font-weight: bold;
+		font-size: 3rem;
+		margin: 0 0 20px 0;
+	}
+	.hint a {
+		text-decoration: none;
+		font-size: 1.6rem;
+		padding: 10px;
+		border-radius: 5px;
+		font-weight: bold;
+	}
+	.hint a:hover {
+		color: darkblue;
+		text-decoration: underline;
+	}
+	.hint a:visited {
+		color: #1e3ba3;
+	}
+	</style>
+	<div class="hint">
+		<p id="head">Hướng dẫn</p>
+		<p>Trò chơi gồm 5 chặng khác nhau.<br />Đến với mỗi chặng, bạn chơi sẽ được xem<br />các tình huống giả định về Toxic Positivity.</p>
+		<p>Hãy quan sát kỹ và trả lời câu hỏi bên dưới nhé!<br />Đến cuối cùng sẽ có bất ngờ đó.</p>
+		<p>Chúc bạn một ngày tốt lành!</p>
+		<a href="toxic-positivity-game.html">Đã hiểu!</a>
+	</div>
+</body>
+</html>

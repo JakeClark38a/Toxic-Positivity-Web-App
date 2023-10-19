@@ -1,0 +1,57 @@
+{
+    "first":{
+        "question":"Bạn trên khuyên nhủ như vậy đã đúng chưa?",
+        "video":"./static/story 1.mp4",
+        "answer":[
+            "Bạn bè thì khuyên như vậy đã đủ rồi!",
+            "Không nên tí nào cả, bạn trên đang thể hiện mình đang \"Toxic Positivity\" vì không đưa ra hướng giải quyết cụ thể nào.",
+            "Bạn trên nên hỏi han và quan tâm nhiều hơn để bạn Dũng bớt buồn!",
+            "Bạn trên tốt nhất đừng nên khuyên, vì bạn Dũng đang buồn, có khuyên cũng vậy."
+        ],
+        "score": ["1", "4", "3", "2"]
+    },
+    "second":{
+        "question":"Bạn An và bạn Bình ai đang là người thể hiện hiện tượng \"Toxic Positivity\"?",
+        "video":"./static/story 2.mp4",
+        "answer":[
+            "Bạn An",
+            "Bạn Bình",
+            "Bạn An và bạn Bình",
+            "Không bạn nào cả"
+        ],
+        "score": ["4", "2", "3", "1"]
+    },
+    "third":{
+        "question":"Bạn nào đang thể hiện \"Positivity\" và \"Toxic Positivity\"?",
+        "video":"./static/story 3.mp4",
+        "answer":[
+            "\"Positivity\": bạn Hiển<br>\"Toxic Positivity\": bạn Nhân, Minh, Giang",
+            "4 bạn Hiển, Nhân, Minh, Giang đều đang \"Positivity\" với bạn Quân",
+            "\"Positivity\": bạn Nhân, Minh, Giang,<br>\"Toxic Positivity\": bạn Hiển",
+            "\"Positivity\": bạn Nhân, Minh, Giang,<br>\"Toxic Positivity\": bạn Quân"
+        ],
+        "score": ["4", "1", "3", "2"]
+    },
+    "forth":{
+        "question":"Gia đình bạn Quỳnh đã có hành động gì?",
+        "video":"./static/story 4.mp4",
+        "answer":[
+            "Thể hiện \"Toxic Positivity\"",
+            "Quan tâm 1 cách hững hờ",
+            "Chấp nhận và lắng nghe con cái",
+            "Muốn biết chuyện để la con cái"
+        ],
+        "score": ["1", "3", "4", "2"]
+    },
+    "fifth":{
+        "question":"Bạn Thư sau khi bị điểm kém đã nhận được những lời \"động viên\" mang tính chất?",
+        "video":"./static/story 5.mp4",
+        "answer":[
+            "Positivity",
+            "Toxic Positivity",
+            "Cả Positivity và Toxic Positivity",
+            "Bắt buộc"
+        ],
+        "score": ["1", "4", "3", "2"]
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "first":{
+        "image":"phantich1.jpg",
+        "section#1":"Người bạn cùng lớp của Dũng đã thể hiện hành động Toxic Positivity qua lời nói. Lời nói trên xuất hiện như một lời sáo rỗng, giúp người khuyên né tránh tình huống chứ không phải đối mặt với cảm xúc của bạn Dũng.",
+        "section#2":"Bạn Dũng sẽ không cảm thấy khá hơn chút nào. Ngược lại, lời an ủi trên có thể khiến bạn trở nên tiêu cực và đau buồn."
+    },
+    "second":{
+        "image":"phantich2.jpg",
+        "section#1":"Bạn An đang rơi vào tình trạng Toxic Positivity khi cố gắng che giấu cảm xúc buồn bã của mình và thể hiện sự vui vẻ ra ngoài.",
+        "section#2":"Việc che giấu cảm xúc thật sẽ khiến bạn An tăng mức độ tiêu cực. Từ đó có thể dẫn đến các tổn hại về tinh thần như stress hay thậm chí là các bệnh lý khác."
+    },
+    "third":{
+        "image":"phantich3.jpg",
+        "section#1":"Bạn Quân đang buồn bã vì nhận điểm kém, nhưng bạn bè xung quanh không phải ai cũng có những lời quan tâm phù hợp.",
+        "section#2":"Những lời an ủi mang tính chất Toxic Positivity sẽ khiến tâm trạng bạn Quân thêm tồi tệ. Lúc này, bạn cần được chia sẻ và lắng nghe, chứ không phải những lời quan tâm thiếu thiện chí và sáo rỗng."
+    },
+    "forth":{
+        "image":"phantich4.jpg",
+        "section#1":"Bạn Quỳnh đang cố gắng giấu cảm xúc của mình. Nhưng may mắn thay, gia đình vẫn luôn cạnh bên và lắng nghe bạn.",
+        "section#2":"Nếu tiếp tục che giấu cảm xúc, Quỳnh sẽ dễ trở nên tiêu cực. Việc chia sẻ và lắng nghe con cái từ gia đình là điều quan trọng để con bày tỏ những cảm xúc của mình. Từ đó có thể tránh khỏi tâm lý muốn che giấu sự việc, không rơi vào Toxic Positivity."
+    },
+    "fifth":{
+        "image":"phantich5.jpg",
+        "section#1":"Bạn Thư vừa nhận điểm kém và tâm trạng đang không ổn định. Một số lời nói như \"Mới bị điểm thấp có một lần, khóc cái gì?\" sẽ khiến bạn thêm tiêu cực và ảnh hưởng đến quá trình học tập về sau.",
+        "section#2":"Những lời nói mang tính chất Toxic Positivity sẽ gây ra những cảm xúc tiêu cực cho bạn. Bên cạnh đó, bạn có thể sẽ mất đi động lực học tập." 
+    }
+}

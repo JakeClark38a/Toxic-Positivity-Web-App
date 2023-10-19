@@ -1,0 +1,509 @@
+@font-face{
+	font-family: badFont;
+	src: url(title-font.otf);
+	font-weight: bold;
+}
+@font-face{
+	font-family: badFont;
+	src: url(para-font.otf);
+	font-weight: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: badFont, Arial, Helvetica, sans-serif;
+}
+body {
+	overflow-x: hidden;
+	height: 100vh;
+}
+
+.header {
+	position: relative;
+	background-color: #1e3ba3;
+	/*text-align: center;*/
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px 20px 10px 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header .fas {
+	width: 10%;
+}
+
+.header i {
+	display: block;
+}
+
+.header #logo {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 2.5rem;
+}
+
+.header ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header ul li {
+	list-style: none;
+	margin-left: 20px;
+}
+
+.header ul li a {
+	width: auto;
+	color: white;
+	text-decoration: none;
+	padding: 5px 7px;
+	border-radius: 10px;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.header ul li a:hover:not(.fa-circle), .header ul li a.active{
+	background-color: white;
+	color: #1e3ba3;
+	margin: 0;
+}
+
+.header .fa-circle:hover {
+	color:#fffaac;
+	border-radius: 3px;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Nothing for this selector :(
+.home {
+
+}*/
+/* Account dialog */
+.ui-dialog .ui-dialog-titlebar, .ui-dialog .ui-dialog-buttonpane button{
+	background-color: #3b55c4;
+	color: white;
+}
+.home .head img {
+	float: right;
+	margin: 80px 0;
+	width: 45%;
+	height: 45%;
+	object-fit: fill;
+}
+.titles {
+	display: block;
+	position: relative;
+	padding: 150px 0 150px 70px;
+	color: #1e3ba3;
+}
+
+.titles .title {
+	font-weight: bold;
+	font-size: 3rem;
+	margin-bottom: 20px;
+}
+.titles .desc {
+	font-size: 1.3rem;
+	margin-bottom: 80px;
+	font-weight: 500;
+}
+.titles a:not(.reset-style) {
+	position: relative;
+	text-decoration: none;
+	color: white;
+	background-color: #3b55c4;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2rem;
+	padding: 10px 30px;
+	margin: 0 0 30px 19%;
+	border-radius: 8px;
+}
+.wip #wip {
+	display: block;
+	margin: 0 auto;
+	width: 40%;
+}
+.error img {
+	display: block;
+	width: 60%;
+	margin: 0 auto;
+}
+.error a.reset-style {
+	color: blue;
+	text-decoration: none;
+	font-weight: bold;
+}
+.error p#desc.reset-style {
+	font-size: 1.24rem;
+	text-align: center;
+	margin-top: 10px;
+}
+.error a.reset-style:hover {
+	text-decoration: underline;
+}
+.game {
+	position: relative;
+	display: block;
+	width: 70%;
+	margin: 5% auto;
+}
+
+.game img {
+	width: 100%;
+	object-fit: scale-down;
+	box-shadow: 0 0 10px black;
+	border-radius: 8px;
+}
+
+.game #button a, .game #button2 a, .game #button3 a {
+	display: inline-block;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	font-size: 1.3rem;
+	background-color: #fffaac;
+	width: 20%;
+	padding: 10px 10px;
+	text-align: center;
+	margin: 30px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px black;
+
+}
+.game #button a:nth-child(1) {
+	margin-left: 20%;
+}
+.game #button a:nth-child(2) {
+	float: right;
+	margin-right: 20%;
+}
+
+.game #button2 a:nth-child(1) {
+	margin-left: 10%;
+	width: 40%;
+}
+.game #button2 a:nth-child(2) {
+	float: right;
+	margin-right: 10%;
+}
+
+.game #button3 a:nth-child(2) {
+	margin-right: 10%;
+	width: 40%;
+	float: right;
+}
+
+.game #result {
+	display: block;
+	background-color:#fffaac;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px black;
+	font-weight: bold;
+}
+
+.games {
+	position: relative;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+}
+.games video {
+	display: block;
+	margin: auto;
+}
+
+.games .question {
+	display: block;
+	position: relative;
+	width: 80%;
+	background-color: #fbdac9;
+	margin: 5px auto;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 3px 3px 3px 3px lightcoral;
+	font-size: 1.3rem;
+}
+
+.games .answer {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.games .answer li {
+	width: 45%;
+	padding: 0.5rem;
+	margin: 10px;
+	background-color:#daf2fc;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 5px 3px grey;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.games .answer li.ui-selected {
+	background-color: green;
+}
+.games .answer li.ui-selecting {
+	background-color: yellow;
+}
+
+.game #summary {
+	background-color: #ffcfd2;
+}
+
+.game #summary table {
+	border: 3px solid black;
+	border-collapse: collapse;
+	margin: 2% 1.5%;
+}
+
+.game #summary caption, .game #summary #comment, .game #summary #report {
+	font-weight: bold;
+	font-size: 1.3rem;
+	margin: 10px;
+}
+.game #summary td, .game #summary th {
+	border: 1px solid black;
+	padding: 3px;
+}
+
+.game .mores {
+	display: inline-block;
+	width: 100%;
+
+}
+
+.game .mores .left{
+	position: relative;
+	width: 40%;
+	float: left;
+	padding: 0 10px 0 0;
+
+}
+.game .mores .left img {
+	display: block;
+	border: 5px solid #1e3ba3;
+	border-radius: 5px;
+	box-shadow: none;
+}
+.game .mores .left span#title {
+	display: block;
+	color: white;
+	background-color:#1e3ba3;
+	padding: 8px;
+	margin: 10px 20%;
+	text-align: center;
+	font-weight: 500;
+	font-size: 1.3rem;
+	border-radius: 5px;
+}
+.game .mores .right {
+	position: relative;
+	width: 55%;
+	float: right;
+	border: 5px solid #1e3ba3;
+	border-radius: 5px;
+	padding: 35px 10px;
+}
+.game .mores .right p {
+	font-weight: bold;
+}
+.game .mores .right .title {
+	margin-bottom: 20px;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+	background-image: url(phantich-background.jpg);
+	background-size: contain;
+}
+
+div.send-result-done a#btn, div.send-result-fail a#btn {
+	text-decoration: none;
+    display: inline-block;
+    margin: 30px 0;
+    padding: 10px 10px;
+    background-color: #3b55c4;
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+}
+
+/*Form*/
+
+.form {
+	border: 2px solid #3b55c4;
+	width: 80%;
+	margin: 0 auto 20px auto;
+	padding: 5%;
+	border-radius: 5px;
+}
+
+.form label {
+	display: block;
+	margin-bottom: 3px;
+}
+
+.form input[type=text], .form input[type=password], .form input[type=email], .form select, form input[type=date]{
+	position: relative;
+	width: 100%;
+	padding: 7px;
+	margin-bottom: 5px;
+	border: none;
+	border-bottom: 1px solid #3b55c4;
+}
+
+.form input[type=submit] {
+	border: none;
+	float: right;
+	margin-right: 7%;
+	margin-top: 10px;
+	padding: 7px 8px;
+	background-color: #3b55c4;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.form option {
+	padding: 5px;
+}
+
+p.button {
+	cursor: pointer;
+	margin-top: 10px;
+	margin-left: 10px;
+	color: #3b55c4;
+}
+
+p.button:nth-of-type(1) {
+	margin-top: 40px;
+
+}
+
+p.button:hover {
+	text-decoration: underline;
+}
+
+.left-nav {
+	position: relative;
+	width: 30%;
+	min-height: 100vh;
+	float: left;
+	background-color: lightblue;
+
+}
+
+@media screen and (max-width:700px) {
+	html {
+		font-size: 14px;
+	}
+
+	.header {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		padding: 10px 10px;
+	}
+	.header #logo {
+		position: relative;
+		text-align: left;
+		margin: auto;
+		margin-bottom: 30px;
+	}
+	.header .fa-bars {
+		float: right;
+		font-size: 1.3rem;
+		color: white;
+		padding: 10px;
+		cursor: pointer;
+	}
+	.header .fa-times {
+		float: right;
+		font-size: 1.3rem;
+		color: white;
+		padding: 10px;
+		cursor: pointer;
+	}
+	.header i:hover {
+		background-color: white;
+		color:#1e3ba3;
+		border-radius: 3px;
+	}
+	.header ul {
+		display: none;
+	}
+	.header .active {
+		display: flex;
+		flex-direction: column;
+		align-items: space-between;
+		margin-top: 20px;
+	}
+	.header .active li a {
+		margin: 10px;
+		padding: 2px;
+		border-radius: 3px;
+	}
+
+	.titles p.title {
+		margin-top: 20px;
+	}
+
+	.home .head img {
+		width: 100%;
+		height: 100%;
+		clear: left;
+	}
+	.titles{
+		padding: 0 20px;
+	}
+	.home .head .titles a {
+		margin: 0 30%;
+	}
+
+	.game {
+		width: 90%;
+	}
+	.game a {
+		width: 25%;
+		/* height: calc(2*1.3*12px + 2*10px); */
+		margin: 30px 0;
+	}
+	.game a:nth-child(1){
+		margin-left: 10%;
+	}
+	.game a:nth-child(2){
+		margin-right: 10%;
+	}
+	.games .answer button {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+/*
+Bài học rút ra:
+	Hình ảnh trong div text nên xài float, trường hợp cần tạo image gallery nên sử dụng flexbox kèm với thuộc tính flex cũng như justify-content và align-items và nên dùng thuộc tính scale-down cho các hình ảnh.
+	Nên phát huy toàn bộ tác dụng của "box-sizing: border-box;" cho những hộp cùng chiều dài và chiều rộng.
+	Không nên lạm dụng flexbox vì 1 số trình duyệt không hỗ trợ, thay vào đó nên để "position: relative", "display: block".
+*/

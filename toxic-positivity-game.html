@@ -1,0 +1,429 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Trò chơi - Toxic Positivity</title>
+	<link rel="stylesheet" href="./static/style.css">
+	<link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+	<style>
+		.ui-dialog-titlebar-close {
+    		visibility: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<noscript>Hãy mở JavaScript để trò chơi được hoạt động tốt nhất!</noscript>
+	<header class="header">
+		<i class="fas fa-bars"></i>
+		<i class="fas fa-times"></i>
+		<a href="index.html" id="logo">TOPOTY</a>
+		<ul>
+			<li><a href="index.html">Trang chủ</a></li>
+			<li><a href="toxic-positivity-game.html">Trò chơi</a></li>
+			<li><a href="toxic-positivity-chat.html">Trò chuyện</a></li>
+			<li><a href="toxic-positivity-contact.html">Liên hệ</a></li>
+			<li><a href="toxic-positivity-acc.html" class="fas fa-circle"></a></li>
+		</ul>
+	</header>
+	<section class="game">
+		<img src="./static/game-img-min.jpg" alt="Some picture here"/>
+		<div id="button">
+			<a href="game-hint.html">Hướng dẫn</a>
+			<a id="start" href="#">Bắt đầu</a>
+		</div>
+		<!-- Khi nguoi dung click vao next sau khi nhin thay ban do. May tinh be like: -->
+		<div class="games" id="first" style="display: none;">
+			<button id="next">Tiếp</button>
+			<video width="70%" controls autoplay muted>
+				<source src="./static/story 1.mp4" type="video/mp4" id="mp4">
+				<source src="./static/story 1.webm" id="webm">
+				Your browser didn't support video
+			</video>
+			<span class="question">Question</span>
+			<ul class="answer" style="list-style: none;">
+				<li id="A" data="A">A</li>
+				<li id="B" data="B">B</li>
+				<li id="C" data="C">C</li>
+				<li id="D" data="D">D</li>
+			</ul>
+			<!-- Some HTML in here -->
+		</div>
+
+		<div class="stage" style="display: none">
+			<button id="next" style="display: block; float: right; margin-top: 10px; margin-bottom: 30px; padding: 10px;background-color: #fffaac; border-radius: 5px;">Tiếp</button>
+		</div>
+
+		<!-- Khi nguoi dung hoan thanh 5 cau hoi, can phai hien thi phan tong ket. May tinh be like: -->
+		<div id="summary">
+
+			<!-- Some HTML in here -->
+		</div>
+
+		<div id="button2" style="display: none">
+			<a href="#" id="more">Xem phân tích/tác hại</a>
+			<a href="toxic-positivity-game.html" id="back">Trở lại</a>
+		</div>
+
+		<!-- Khi nguoi dung click vao nut Xem phan tich/tac hai. May tinh be like: -->
+		<div id="button3" style="display: none;">
+			<a href="toxic-positivity-game.html">Quay lại màn hình chính</a>
+			<a href="#">Xem biện pháp</a>
+		</div>
+
+		<div class='mores' id="tabs" style="display: none">
+			<ul>
+				<li><a href="#more-first">Câu chuyện 1</a></li>
+				<li><a href="#more-second">Câu chuyện 2</a></li>
+				<li><a href="#more-third">Câu chuyện 3</a></li>
+				<li><a href="#more-forth">Câu chuyện 4</a></li>
+				<li><a href="#more-fifth">Câu chuyện 5</a></li>
+			</ul>
+			<div id="more-first" style="background-image: url(./static/phantich-background.jpg);"></div>
+			<div id="more-second"></div>
+			<div id="more-third"></div>
+			<div id="more-forth"></div>
+			<div id="more-fifth"></div>
+		</div>
+		<div class="send-result" style="display: none" title="Gửi kết quả">
+			<p id="title">Đang gửi kết quả...</p>
+		</div>
+		<div class="send-result-done" style="display: none" title="Hoàn thành!">
+			<p id="title">Câu trả lời của bạn đã được ghi lại.</p>
+			<a href="javascript:void(0)" id="btn">Xem kết quả</a>
+		</div>
+		<div class="send-result-fail" style="display: none" title="Không gửi được!">
+			<p id="title">Có vẻ như câu trả lời của bạn không được ghi lại.</p>
+			<a href="toxic-positivity-game.html" id="btn">Trở về màn hình chính</a>
+		</div>
+		<!--<iframe width="1" height="1" src="https://www.youtube.com/embed/shljxa0b-Mg?autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>-->
+		<embed src="./static/output.mp3" width="3" height="3" loop="true" autostart="true" hidden="true">
+
+	</section>
+	<script>
+		const id = ["first","second", "third", "forth", "fifth"];
+		const id2 = ["A", "B", "C", "D"];
+		const char_to_num = {
+			"A": 0,
+			"B": 1,
+			"C": 2,
+			"D": 3,
+			"first": 1,
+			"second": 2,
+			"third": 3,
+			"forth": 4,
+			"fifth": 5,
+		};
+		const current_num = 2;
+		const phone_width = 700;
+		var current_question = 0;
+		var current_story = 0;
+		var user_true_answer = [0, 0, 0, 0, 0];
+		var already_more = false;
+		const dialog_collection = {
+			"send_result" : $(".game .send-result").dialog({
+				autoOpen: false,
+				draggable: false,
+				resizable: false,
+				modal: true,
+				show: {
+					effect: "slide",
+					duration: 500,
+					direction: "up",
+				},
+				position: {
+					my: "center top", at:"center top-5%", of:$(document)
+				}
+			}),
+			"send_result_done" : $(".game .send-result-done").dialog({
+				autoOpen: false,
+				draggable: false,
+				resizable: false,
+				modal: true,
+				position: {
+					my: "center top", at:"center top-5%", of:$(document)
+				}
+			}),
+			"send_result_fail" : $(".game .send-result-fail").dialog({
+				autoOpen: false,
+				draggable: false,
+				resizable: false,
+				modal: true,
+				position: {
+					my: "center top", at:"center top-5%", of:$(document)
+				}
+			}),
+		};
+		function open_one(id){
+			for (let i in dialog_collection) {
+				if (i!=id) dialog_collection[i].dialog("close")
+				else dialog_collection[i].dialog("open");
+			}
+		}
+		// function calculate_each_question(ans, correct){
+		// 	//ans (int) is user answer, correct (bool) ask: is question correct?
+		// 	if (!correct) {
+		// 		user_answer_done[ans]=1;
+		// 	}
+		// 	else {
+		// 		let count = 0;
+		// 		for (let i=0; i<user_answer_done.length; i++) {
+		// 			if (user_answer_done[i]==1) count++;
+		// 		}
+		// 		user_true_answer[current_question] = count;
+		// 	};
+		// 	console.log(user_answer_done);
+		// 	console.log(user_true_answer);
+		// }
+		// function refresh_answer(){
+		// 	for (let i=0; i<user_answer_done.length;i++) user_answer_done[i] = 0;
+		// }
+		function render_question(index, data) {
+			let check = false;
+			$(".games #next").attr("style","display: none;");
+			$(".games video #mp4").attr("src",`./static/story ${current_question+1}.mp4`)
+			$(".games video #webm").attr("src",`./static/story ${current_question+1}.webm`)
+			$(".games video")[0].load();
+			$(".games .question").html(data.question);
+			for (var i = 0; i < data.answer.length; i++) {
+				$(".games .answer #"+id2[i]).html(id2[i]+". "+data.answer[i]);
+				// if (data.correct_answer==id2[i])
+				// 	$(".games .answer #"+id2[i]).click(function(){
+				// 	$(".games .answer #"+id2[i]).attr("class","correct");
+				// 	check = true;
+				// 	calculate_each_question(i, true, index);
+				// 	$(".games #next").attr("style","display: block; float: right; margin-top: 10px; margin-bottom: 30px; padding: 10px;");
+				// 	})
+				// else
+				// 	$(".games .answer #"+id2[i]).click(function(){
+				// 	$(".games .answer #"+id2[i]).attr("class","false");
+				// 	if (!check) $(".games #next").attr("style","display: none;");
+				// 	calculate_each_question(i, false, index);
+				// 	});
+				// $(".games .answer #"+id2[i]).click(function(){
+				// 	for (let j = 0; j < data.answer.length; j++)
+				// 		if (j==1) $(".games .answer #"+id2[i]).attr("class", "choose")
+				// 		else $(".games .answer #"+id2[i]).attr("class","");
+				// 	console.log("Clicked"+" "+id2[i]);
+				// 	$(".games #next").attr("style","display: block; float: right; margin-top: 10px; margin-bottom: 30px; padding: 10px;");
+				// });
+			}
+			$(".games .answer").selectable({
+				selected: function(event, ui){
+					$(ui.selected).addClass("ui-selected").siblings().removeClass("ui-selected");
+					$(".games #next").attr("style","display: block; float: right; margin-top: 10px; margin-bottom: 30px; padding: 10px; background-color: #1e3ba3; color: white; border-radius: 5px;");
+					var ans = "";
+					$(".games .answer .ui-selected").each(function(){
+                        ans = $(this).attr("data");
+                    });
+					user_true_answer[current_question] = char_to_num[ans];
+					//console.log(user_true_answer);
+				}
+			});
+		}
+		function render_main(flag){
+			$(".game #result").hide();
+			if (flag=="main") {
+				$(".game .games, .game .stage, .game #summary, .game #button2, .game #button3, .game .mores").hide();
+				$("header, .game img, .game #button").show();
+				$("body").attr("style","");
+			}
+			else if ((flag>=1) && (flag<=5)) {
+			    document.title="Câu hỏi "+flag+" - Trò chơi - Toxic Positivity";
+				$("header, .game img, .game #button, .game .games, .game #summary, .game #button2, .game #button3, .game .mores").hide();
+				$(".game .stage").show();
+				$("body").css({
+					"background-image":"url(./static/stage-"+flag+"-min.jpg)",
+					"background-size":"cover",
+					"background-repeat":"no-repeat",
+					"background-color":"#222438",
+					});
+			}
+			else if (flag == "summary") {
+				$("header, .game img, .game #button, .game .games, .game .stage, .game #button3, .game .mores").hide();
+				$(".game #summary, .game #button2").show();
+				$("body").attr("style","");
+			}
+			else if (flag == "more") {
+				$("header, .game img, .game #button, .game .games, .game .stage, .game #summary, .game #button2").hide();
+				$(".game #button3, .game .mores, .game .more .left img").show();
+				$("body").attr("style","");
+			}
+			else if (flag=="measure") {
+				$(".game img, .game #button, .game .games, .game .stage, .game #summary, .game #button2, .game #button3, .game .mores, .game .more .left img").hide();
+				$("header").show();
+				$("body").css({
+					"background-image":"url(./static/giai-phap.jpg)",
+					"background-size":"cover",
+					"background-repeat":"no-repeat",
+					"background-color":"white",
+					});
+			}
+			else {
+				$("header, .game img, .game #button, .game .stage, .game #summary, .game #button2, .game #button3, .game .mores").hide();
+				$(".game .games").show();
+				$("body").attr("style","background-color: #fffaac;");
+
+			}
+		}
+		function delete_answer() {
+			for (let i = 0; i <4 ; i++) {
+				$(".games .answer #"+id2[i]).removeClass()
+			}
+		}
+		function start_question(id, data){
+			render_main();
+			render_question(id,data);
+		}
+		function show_stage(id){
+			render_main(id);
+			delete_answer();
+		}
+		var total = 0;
+		function calculate_game(item, data){
+
+			//Show summary information
+			let current_place = user_true_answer[char_to_num[item]-1];
+			//console.log(data.answer[current_place]);
+			$(".game #summary table #"+item).html(
+				`<td>${char_to_num[item]}</td>
+				<td>${data.question}</td>
+				<td>${id2[current_place]+". "+data.answer[current_place]}</td>
+				<td>${data.score[current_place]}</td>`
+				);
+			total+=parseInt(data.score[current_place]);
+		}
+		function show_comment(total){
+			//Thang điểm
+			if ((0<=total) && (total<=5)) return "Bạn chưa hiểu biết về \"Toxic Positivity\", cố gắng lên nhé!"
+			else if ((6<=total)&&(total<=10)) return "Bạn đã phân biệt được 1 nửa tình huống về Toxic Positivity rồi đó."
+			else if ((11<=total) && (total<=15)) return "Bạn đã hiểu 3/4 về \"Toxic Positivity\" rồi nè!"
+			else return "Bạn thật sự hiểu rõ về \"Toxic Positivity\" rồi đó."
+		}
+		$(document).ready(function(){
+    		$(".game #button a:nth-child(2)").click(function(){
+    			render_main(1);
+    		});
+    		$(".game #button2 #more").click(function(event){
+    			event.preventDefault();
+    			render_main("more");
+    			$.getJSON("./static/bo_phantich.json", function(data) {
+    			$(".game .mores").tabs();
+    			for (let i of id){
+    				$(".game .mores #more-"+i).html(
+    					`
+    					<div class="left">
+    						<img src="./static/${data[i].image}" alt="Câu chuyện thứ nhất">
+    						<br>
+    						<span id="title">CÂU CHUYỆN ${char_to_num[i]}</span>
+    						<br>
+    					</div>
+    					<div class="right">
+    						<p class="title">PHÂN TÍCH TÌNH HUỐNG TOXIC POSITIVITY</p>
+    						<p class="section" id="1">${data[i]["section#1"]}</p>
+    						<br>
+    						<p class="section" id="2">
+    							Hậu quả để lại:
+    							<br>
+    							${data[i]["section#2"]}
+    						</p>
+    					</div>
+    					`
+    				);
+    				// $(".game .mores #more-"+i).css("background-image","url(./static/phantich-background.jpg)");
+    			}
+    		});
+    		});
+    		$.getJSON("./static/question_collection.json", function(data){
+    			$(".game .stage #next").click(function(){
+    				start_question(id[current_question], data[id[current_question]]);
+    			});
+    			$(".games #next").click(function(){
+    				if (current_question<4){
+    				current_question++;
+    				show_stage(current_question+1);
+    				}
+    				else {
+    					// Ready string to post to server
+						let res = {};
+    					for (let i = 0; i <user_true_answer.length; i++) res[i] = id2[user_true_answer[i]];
+    					// let template = `
+    					// <table>
+    					// 	<caption>Tổng kết</caption>
+    					// 	<tr id="head">
+    					// 		<th>Câu hỏi</th>
+    					// 		<th>Nội dung câu hỏi</th>
+    					// 		<th>Đáp án của bạn</th>
+    					// 		<th>Số điểm</th>
+    					// 	</tr>
+    					// 	<!-- This is test table to style -->
+    					// 	<tr id="first"></tr>
+    					// 	<tr id="second"></tr>
+    					// 	<tr id="third"></tr>
+    					// 	<tr id="forth"></tr>
+    					// 	<tr id="fifth"></tr>
+    					// 	<tr id="sum"></tr>
+    					// </table>
+    					// <p id="comment"></p>
+    					// <p id="report" style="font-size: 1.3rem; font-weight: bold; margin: 10px;">Đợi 1 lát...</p>
+    					// <br>
+    					// `;
+						open_one("send_result");
+    					$.post("./toxic-positivity-admin", res)
+    					.done(function(data){$(".send-result-done a").attr("href","/result?id="+data);open_one("send_result_done");})
+    					.fail(function(){open_one("send_result_fail");});
+    					// $(".game #summary").html(template);
+    					// show_stage("summary");
+    					// $.each(data, function(i, item){
+    					// 	calculate_game(i, item);
+    					// });
+    					// $(".game #summary #sum").html(`<td colspan='3'>Tổng</td><td>${total}</td>`);
+    					// $(".game #summary #comment").html(show_comment(total));
+    				}
+    			})
+    		});
+    		$(".game #button3 a:nth-child(2)").click(function(event){
+    			event.preventDefault();
+    			render_main("measure");
+    		})
+
+    		//Responsive main
+    		render_main("main");
+    		$(window).resize(function(){
+    			if ($(this).width()>phone_width) {
+    				$("header .fa-bars, header .fa-times").hide();
+    			}
+    			else {
+    				$("header .fa-bars").show();
+    			}
+    		});
+
+    		if ($(window).width()<=phone_width) {
+    			$("header .fa-bars").show();
+    			$("header .fa-times").hide();
+
+    			$("header .fa-bars").click(function(){
+    				$("header ul").addClass("active");
+    				$("header .fa-times").show();
+    				$(this).hide();
+    			});
+
+    			$("header .fa-times").click(function(){
+    				$("header ul").removeClass("active");
+    				$("header .fa-bars").show();
+    				$(this).hide();
+    			});
+    		}
+    		else {
+    			$("header .fa-bars, header .fa-times").hide();
+    		}
+    		//Highlight current page
+    		$("header ul li:nth-child("+current_num+") a").addClass("active");
+		});
+	</script>
+</body>
+</html>
